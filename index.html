@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>drawingBoardFront</title>
+
+    <script src="main.js"></script>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="libraries/p5.sound.js"></script>
+    <script src="sketch.js"></script>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas {
+            margin: auto;
+        }
+        
+        #workSpace {
+            visibility: hidden;
+        }
+        
+        #joinSpace {
+            display: none;
+        }
+        
+        #createSpace {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row m-4">
+        <div class="col text-center">
+            <h4>
+                Welcome to collaborative drawing board
+            </h4>
+        </div>
+    </div>
+    <div class="row m-4" id='entryPage'>
+        <div class="col">
+            <div width='300px' class='flex-column text-center'>
+                <center>
+                    <input type='text' id='username' value='participant' /> <br>
+                    <button class='m-2 btn btn-primary ' id='createSpace' onclick="createWorkSpace()">create Work Space</button>
+                    <button class='m-2 btn btn-primary ' id='joinSpace' onclick="joinWorkSpace()">join Work Space</button>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="row m-4" id='workSpace'>
+        <div class="col">
+            <div id="drawBoard"></div>
+            <div>
+                <button class="btn btn-outline-secondary m-1" id='shapeSelector-circle'>circle</button>
+                <button class="btn btn-outline-secondary m-1" id='shapeSelector-rectangle'>rectangle</button>
+                <button class="btn btn-outline-secondary m-1" id='shapeSelector-line'>line</button>
+                <button class="btn btn-outline-secondary m-1" id='shapeSelector-text'>text</button>
+                <input id='textInputField' />
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column">
+                <input type="text" id='inviteLink'>
+                <button class="btn btn-outline-info m-1" id='inviteLinkButton'>copy invitation link </button>
+            </div>
+            <hr/>
+            <div class='text-center font-weight-bold mb-3'>
+                Participants
+            </div>
+            <div>
+                <ul id='usersOnBoard'>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+<script src="./syncDraw.js"></script>
+
+</html>
