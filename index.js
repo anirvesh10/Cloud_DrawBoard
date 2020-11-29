@@ -1,7 +1,7 @@
 let userInfo = {}
 
 const apiCall = async(path, messageBody) => {
-    const response = await fetch(`http://127.0.0.1:8000/api/${path}/`, {
+    const response = await fetch(`https://drawboardbackend.herokuapp.com/api/${path}/`, {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(messageBody), // string or object
@@ -16,7 +16,7 @@ const apiCall = async(path, messageBody) => {
 }
 
 const getApiCall = async(path, messageBody) => {
-    var url = new URL(`http://127.0.0.1:8000/api/${path}/`),
+    var url = new URL(`https://drawboardbackend.herokuapp.com/api/${path}/`),
         params = messageBody
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
     const response = await fetch(url, { method: 'GET' });
