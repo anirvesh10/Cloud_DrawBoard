@@ -39,7 +39,7 @@ const createWorkSpace = async() => {
     workSpaceInfo = await apiCall(path, { name: document.querySelector('#username').value });
     userInfo = {...workSpaceInfo };
 
-    document.querySelector('#inviteLink').value = `${window.location.origin}?spaceId=${userInfo.workSpaceURL || ''}`;
+    document.querySelector('#inviteLink').value = `${window.location.origin}/Cloud_DrawBoard/?spaceId=${userInfo.workSpaceURL || ''}`;
     startApp();
 };
 
@@ -48,7 +48,7 @@ const joinWorkSpace = async() => {
     workSpaceInfo = await apiCall(path, { name: document.querySelector('#username').value, workSpaceURL: userInfo.workSpaceURL });
     userInfo = {...workSpaceInfo }
 
-    document.querySelector('#inviteLink').value = `${window.location.origin}?spaceId=${userInfo.workSpaceURL || ''}`;
+    document.querySelector('#inviteLink').value = `${window.location.origin}/Cloud_DrawBoard/?spaceId=${userInfo.workSpaceURL || ''}`;
     startApp();
 };
 
